@@ -42,7 +42,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex items-center gap-2">
                 <BiSolidUserCircle className='h-8 w-8'></BiSolidUserCircle>
-                <button className='btn'><NavLink to={'/signin'}>Sign In/Up</NavLink></button>
+                <button className='btn'><NavLink to={'/signin'}>Sign In | Up</NavLink></button>
             </div>
         </div>
     );

@@ -12,6 +12,9 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.email.value;
+        const photo = form.photo.value;
+        const address = form.address.value;
+
         console.log(name, email, password);
 
         signUpUser(email, password)
@@ -20,7 +23,7 @@ const SignUp = () => {
 
                 const creationTime = result?.user?.metadata?.creationTime;
 
-                const newUser = { name, email, creationTime }
+                const newUser = { name, email, address, photo, creationTime }
                 fetch('http://localhost:3000/users', {
                     method: 'POST',
                     headers: {
@@ -63,6 +66,12 @@ const SignUp = () => {
                         </div>
                         <div className="form-control flex flex-col space-y-2">
                             <label className="label">
+                                <span className="label-text">Address</span>
+                            </label>
+                            <input type="address" placeholder="address" name='address' className="input input-bordered w-full" required />
+                        </div>
+                        <div className="form-control flex flex-col space-y-2">
+                            <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <input type="photo" placeholder="photo url" name='photo' className="input input-bordered w-full" required />
@@ -76,7 +85,7 @@ const SignUp = () => {
                         <div className="form-control mt-6 w-full">
                             <button className="btn btn-primary w-full">Sign Up</button>
                         </div>
-                        <small className='text-center'>Already have account? <Link to={'/signin'} className='text-rose-500 underline'>Sign In</Link></small>
+                        <small className='text-center'>Already have account? <Link to={'/signin'} className='text-rose-500 underline font-bold'>Sign In</Link></small>
                     </form>
                 </div>
             </div>

@@ -29,7 +29,7 @@ const SignIn = () => {
                         <div className="form-control mt-6 w-full">
                             <button className="btn btn-primary w-full">Sign In</button>
                         </div>
-                        <small className='text-center'>Haven't any account yet? <Link to={'/signup'} className='text-rose-500 underline'>Sign Up</Link></small>
+                        <small className='text-center'>Haven't any account yet? <Link to={'/signup'} className='text-rose-500 underline font-bold'>Sign Up</Link></small>
                     </form>
                 </div>
             </div>
