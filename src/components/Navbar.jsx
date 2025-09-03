@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { BiSolidUserCircle } from "react-icons/bi";
 
 const Navbar = () => {
     const Links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
+        <li><NavLink to={'/users'}>Users</NavLink></li>
         <li><NavLink to={'/addProduct'}>Add Product</NavLink></li>
-        <li><NavLink to={'/signin'}>Sign In</NavLink></li>
 
     </>
     return (
@@ -39,8 +40,9 @@ const Navbar = () => {
                     {Links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className='btn'><NavLink to={'/signup'}>Sign Up</NavLink></button>
+            <div className="navbar-end flex items-center gap-2">
+                <BiSolidUserCircle className='h-8 w-8'></BiSolidUserCircle>
+                <button className='btn'><NavLink to={'/signin'}>Sign In/Up</NavLink></button>
             </div>
         </div>
     );

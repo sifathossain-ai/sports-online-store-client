@@ -6,6 +6,7 @@ import AddProduct from '../pages/AddProduct';
 import Products from '../components/Products';
 import SignIn from '../pages/SignIn';
 import UpdateProduct from '../components/UpdateProduct';
+import Users from '../pages/Users';
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 path: '/updateProduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
                 loader: ({ params }) => fetch(`http://localhost:3000/sports/${params.id}`)
+            },
+            {
+                path: '/users',
+                element: <Users></Users>
             }
         ]
     },
