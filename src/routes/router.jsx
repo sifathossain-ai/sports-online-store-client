@@ -7,6 +7,7 @@ import Products from '../components/Products';
 import SignIn from '../pages/SignIn';
 import UpdateProduct from '../components/UpdateProduct';
 import Users from '../pages/Users';
+import UpdateUser from '../components/UpdateUser';
 
 
 
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
                 path: '/users',
                 element: <Users></Users>,
                 loader: () => fetch('http://localhost:3000/users')
+            },
+            {
+                path: '/updateUser/:id',
+                element: <UpdateUser></UpdateUser>,
+                loader: ({ params }) => fetch(`http://localhost:3000/users/${params.id}`)
             }
         ]
     },

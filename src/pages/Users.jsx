@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { MdDeleteForever } from "react-icons/md";
 import { MdModeEditOutline } from "react-icons/md";
 import Swal from 'sweetalert2';
@@ -10,8 +10,8 @@ const Users = () => {
 
     // const { name, email, address, photo, creationTime } = users;
 
-    const handleUserDelete = id => {
-        console.log(id);
+    const handleDeleteUser = id => {
+        // console.log(id);
 
         Swal.fire({
             title: "Are you sure?",
@@ -35,11 +35,16 @@ const Users = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
+                            const remainingUsers = users.filter(user => user._id !== id);
+                            setUsers(remainingUsers);
                         }
                     })
             }
         });
 
+    }
+    const handleUserEdit = id => {
+        console.log(id);
     }
 
     return (
@@ -88,12 +93,13 @@ const Users = () => {
                                     <p className='font-normal'>Hello</p>
                                 </th>
                                 <th>
-                                    <button className='btn px-2'>
+                                    <Link to={`/updateUser/${user._id}`}><button className='btn px-2'>
                                         <MdModeEditOutline className='w-5 h-5 text-yellow-500'></MdModeEditOutline>
                                     </button>
+                                    </Link>
                                 </th>
                                 <th>
-                                    <button onClick={() => handleUserDelete(user._id)} className='btn px-2'>
+                                    <button onClick={() => handleDeleteUser(user._id)} className='btn px-2'>
                                         <MdDeleteForever className='w-5 h-5 text-red-500'></MdDeleteForever>
                                     </button>
                                 </th>
