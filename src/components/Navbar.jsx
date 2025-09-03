@@ -1,18 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const Links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/addProduct'}>Add Product</NavLink></li>
         <li><NavLink to={'/signin'}>Sign In</NavLink></li>
-        <li><NavLink to={'/signup'}>Sign Up</NavLink></li>
+
     </>
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className=" lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -32,7 +32,7 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <Link to={'/'}><button className="btn btn-ghost text-xl">Sports Store</button></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <button className='btn'><NavLink to={'/signup'}>Sign Up</NavLink></button>
             </div>
         </div>
     );

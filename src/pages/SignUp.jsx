@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AuthProvider, { AuthContext } from '../provider/AuthProvider';
 
 const SignUp = () => {
+    const { signUpUser } = useContext(AuthContext)
+
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
@@ -8,12 +11,17 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.email.value;
         console.log(name, email, password);
+
+        signUpUser(email, password)
+            .then(result => {
+                console.log(result);
+            })
     }
     return (
         <div className="hero bg-base-200 py-12 my-12">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left mb-5">
-                    <h1 className="text-5xl font-bold">Sign Up Now!</h1>
+                    <h1 className="text-2xl md:text-5xl font-bold">Sign Up Now!</h1>
                 </div>
                 <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
                     <form onSubmit={handleSignUp} className="card-body space-y-3">

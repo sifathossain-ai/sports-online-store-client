@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Products from '../components/Products';
+import banner from '../assets/bannar.jpg';
 
 const Home = () => {
     return (

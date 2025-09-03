@@ -40,14 +40,14 @@ const Product = ({ sport, sports, setSports }) => {
     }
 
     return (
-        <div className="card bg-base-100 shadow-xl border border-gray-100">
+        <div className="card bg-base-100 border border-gray-50">
             <div className="card-body">
                 <div className='flex justify-between items-center'>
                     <h2 className="card-title">{name}</h2>
                     <div className='flex gap-2'>
                         <Link to={`/updateProduct/${_id}`}>
                             <button className='btn px-2'>
-                                <MdEdit className='w-5 h-5'></MdEdit>
+                                <MdEdit className='w-5 h-5 text-yellow-500'></MdEdit>
                             </button>
                         </Link>
                         <button onClick={() => handleDelete(_id)} className='btn px-2'>

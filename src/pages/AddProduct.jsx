@@ -27,7 +27,7 @@ const AddProduct = () => {
     return (
         <div className='p-24'>
             <div className='p-12 text-center space-y-4'>
-                <h1 className="text-6xl">Add Product</h1>
+                <h1 className="text-2xl md:text-6xl font-semibold">Add Product</h1>
                 <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout.</p>
             </div>
             <form onSubmit={handleAddProduct}>
