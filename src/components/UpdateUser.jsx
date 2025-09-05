@@ -5,9 +5,27 @@ const UpdateUser = () => {
     const loadUser = useLoaderData();
     // console.log(loadUser);
 
-    const { name, email, address, photo, password } = loadUser;
+    const { _id, name, email, address, photo, password } = loadUser;
     const handleUpdateUser = e => {
         e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const address = form.address.value;
+        const photo = form.photo.value;
+        const updatedUser = { name, email, address, photo }
+
+        fetch(`http://localhost:3000/users/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(updatedUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
     return (
         <div className="hero bg-base-200 rounded-lg py-12 my-12">

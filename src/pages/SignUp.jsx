@@ -4,14 +4,14 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
-    const { signUpUser } = useContext(AuthContext)
+    const { signUpUser, setUser } = useContext(AuthContext)
 
     const handleSignUp = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const password = form.email.value;
+        const password = form.password.value;
         const photo = form.photo.value;
         const address = form.address.value;
 
@@ -20,6 +20,7 @@ const SignUp = () => {
         signUpUser(email, password)
             .then(result => {
                 console.log(result);
+                setUser(email);
 
                 const creationTime = result?.user?.metadata?.creationTime;
 
@@ -36,7 +37,7 @@ const SignUp = () => {
                         console.log(data);
                         if (data.insertedId) {
                             Swal.fire({
-                                title: "Drag me!",
+                                title: "Sign Up Successfully!",
                                 icon: "success",
                                 draggable: true
                             });

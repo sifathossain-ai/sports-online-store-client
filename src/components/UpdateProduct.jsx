@@ -32,7 +32,7 @@ const UpdateProduct = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: "Drag me!",
+                        title: "Update Product Successfully!",
                         icon: "success",
                         draggable: true
                     });

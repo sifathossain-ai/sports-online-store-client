@@ -40,7 +40,7 @@ const Product = ({ sport, sports, setSports }) => {
     }
 
     return (
-        <div className="card bg-base-100 border border-gray-50">
+        <div className="card bg-base-100 border border-gray-200">
             <div className="card-body">
                 <div className='flex justify-between items-center'>
                     <h2 className="card-title">{name}</h2>

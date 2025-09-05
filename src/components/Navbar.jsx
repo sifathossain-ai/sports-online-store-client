@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { use, useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { BiSolidUserCircle } from "react-icons/bi";
+import SignIn from '../pages/SignIn';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    // console.log(user)
+
     const Links = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/users'}>Users</NavLink></li>
         <li><NavLink to={'/addProduct'}>Add Product</NavLink></li>
 
     </>
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -41,8 +47,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex items-center gap-2">
-                <BiSolidUserCircle className='h-8 w-8'></BiSolidUserCircle>
-                <button className='btn'><NavLink to={'/signin'}>Sign In | Up</NavLink></button>
+                {
+                    user ? <p>{user.email}</p> : <BiSolidUserCircle className='h-8 w-8' />
+
+                }
+                {
+                    user ? <button onClick={logOut} className='btn'>Log Out</button> : <button className='btn'><NavLink to={'/signin'}>Sign In | Up</NavLink></button>
+                }
             </div>
         </div>
     );
